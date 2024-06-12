@@ -14,7 +14,11 @@ struct Node<T> {
     next: Option<NonNull<Node<T>>>,
 }
 
-impl<T> Node<T> {
+trait NewTrait<T> {
+    fn new(t: T) -> Node<T>;
+}
+
+impl<T> NewTrait<T> for Node<T> {
     fn new(t: T) -> Node<T> {
         Node {
             val: t,
